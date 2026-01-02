@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>    
+<head>
+    <meta charset="UTF-8">
+    <script type="module"
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+
+    <style>
+        body {
+            color: white;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .page {
+            display: flex;
+            padding: 5% 7%;
+            gap: 40px;
+        }
+
+        .text {
+            width: 50%;
+        }
+
+        .text p {
+            width: 80%;
+        }
+
+        .viewer {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        model-viewer {
+            width: 400px;
+            height: 400px;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+            text-decoration: underline;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 4px;
+            width: 400px;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
+
+        h1 {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Missão 0</h1>
+
+<div class="page">
+
+    <div class="text">
+        <p>
+            Essa missão, apesar de tutorial, decidirá o futuro do mundo e da gameplay
+            de maneira inacreditável. O plot principal é uma batalha de intelectos
+            inacreditável que será, no fim, decidida pelo nível de galhofa dos jogadores.
+        </p>
+
+        <h2>Início</h2>
+        <p>
+            Os jogadores começam se conhecendo em algum bar genérico em alguma cidade genérica. Todos eles receberam,
+            em algum momento da jornada até ali, um fragmento de objeto que, se unido, formará uma bússola até a cidade
+            do conselheiro. <br><br>
+
+            Eles irão até lá (suponho eu), encontrando algum combate contra constructos do rei que tentarão barrar a passagem 
+            e servem de tutorial de combate. <br><br>
+
+            Chegando na cidade, sendo prontamente abordados por guardas que parecem cangaceiros, com lanças cumpridas e roupas
+            de se usar na caatinga, serão escoltados pelo <span class="tooltip"> arraial do conselheiro 
+                <span class="tooltip-text"> A melhor descrição dessa cidade é confusão. Centenas de barracões de barro se 
+                                            expalham caoticamente pelo vale do rio que corta esse vilarejo. As casas, se é 
+                                            que podem ser chamadas assim, possuem espaço para uma família bem mirrada, o que não 
+                                            é problema, pois a população é mirrada, raquítica. Falta alimento, falta vivacidade naquelas
+                                            pessoas que ali estão claudicantes, marrons não se sabe se da poeira ou se queimadas do fustigante
+                                            sol que parece preferir molestar aquele povo já tão molestado. <br><br> a única parte organizada
+                                            desse caos urbano é a rua que sai de uma igreja colossal - se comparada às casas que a circundam - 
+                                            e leva até uma fonte, visivelmente seca, na qual está talhado no barro: <b>O sertão vai virar mar
+                                            </b>
+
+                </span>
+            </span> até a igreja que fica no centro. Serão instruídos, pelos guardas, a fazerem silêncio enquanto estiverem ali, tão perto
+                da catedral. Em não muito tempo abrirá a porta o <a href="../personagens/conselheiro.html">Conselheiro</a>, que lhes explicará 
+                a missão.
+        </p>
+        <h2>Missão</h2>
+        <p>
+            Há um comboio com papiros, livros e pergaminhos confiscados pelo governo que passará por uma cidade próxima para ser guardado na 
+            biblioteca proibida do rei, que em geral significa perda da obra, e ali naquele comboio tem um livro que o Conselheiro deseja intensamente.
+            Se questionado, ele dirá que é um livro sobre fauna maritma, por que ele precisa se familiziar com o mar para quando o sertão virar mar. <br><br>
+
+            A missão dos jogadores é recuperar esse livro e entrega-lo ao conselheiro, preferencialmente recuperando todos e trazendo-os para segurança.
+        </p>
+
+        <h2>Plot da missão</h2>
+        <p>
+            O gabinete de inteligência do governo sabia dessa investida contra o comboio de livros, e por isso plantou, no que sabiam ser destinado
+            ao conselheiro, um feitiço de destruição de intelecto e um de possessão forte, com os quais, se alguém de altimissima inteligência lê-lo,
+            tornar-se-á controlado pelo responsável pelo feitiço.
+        </p>
+    </div>
+
+    <div class="viewer">
+        <model-viewer
+            src="salompas.glb"
+            alt="Salompas"
+            auto-rotate
+            camera-controls
+        >
+        </model-viewer>
+    </div>
+
+</div>
+
+</body>
+</html>

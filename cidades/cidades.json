@@ -1,0 +1,32 @@
+{
+  "cities": [
+    {
+      "id": "13",
+      "name": "Arraial do Conselheiro",
+      "x": 441,
+      "y": 221,
+      "content": "arraial-conselheiro.html"
+    },
+    {
+      "id": "22",
+      "name": "Valem",
+      "x": 401,
+      "y": 369,
+      "content": "val2em.html"
+    },
+    {
+      "id": "223",
+      "name": "Caverna das Faces",
+      "x": 317,
+      "y": 220,
+      "content": "caverna-das-faces.html"
+    },
+    {
+      "id": "29",
+      "name": "Ruína dos Drow",
+      "x": 413,
+      "y": 516,
+      "content": "ruina-dos-drow.html"
+    }
+  ]
+}

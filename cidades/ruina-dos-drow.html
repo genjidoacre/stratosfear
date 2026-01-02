@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                color: white;
+                margin-left: 7%;
+                margin-top: 5%;
+                font-family: 'Courier New', Courier, monospace;
+                
+            }
+
+            body p {
+                width: 40%;
+            }
+
+            .tooltip {
+                position: relative;
+                cursor: help;
+                text-decoration: underline;
+            }
+
+            .tooltip-text {
+                visibility: hidden;
+                position: absolute;
+                background-color: black;
+                color: white;
+                padding: 5px 8px;
+                border-radius: 4px;
+                width: 200px;
+
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .tooltip:hover .tooltip-text {
+                visibility: visible;
+            }
+        </style>
+        <title>Ruína dos Drow</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Ruína dos Drow</h1>
+
+        <h2>Descrição</h2>
+        <p>
+            Esse local é uma ruína abandonada daquele povo que fora conhecido como drow. Atualmente é uma coleção 
+            labiríntica de castelos que poderiam ter sido, dominados totalmente por árvores escuras e retorcidas.
+            <br><br>
+            Ao se aproximar, a primeira coisa a ser notada é uma torre de mago colossal, que pode ser vista mesmo antes da 
+            cidade aparecer no horizonte, e no topo dela, de onde se esperaria o clássico telhado em formato de chapéu de bruxo,
+            surge o tronco de uma árvore ainda maior que cresceu por dentro daquela torre e forma sua copa retorcida. 
+            <br><br>
+            Chegando mais perto, pode se ver, além das raízes dessa árvore que saem das janelas mais baixas da torre em direção 
+            ao solo, muitas silhuetas de casas grandes e um castelo, ambos reduzidos a ruínas.
+        </p>
+
+        <h2>Folk lore</h2>
+        <p>
+            Essa já foi uma cidade portuária e pujante. Seu povo, os drow, faziam comércio exterior com quase todos os
+            povos do mundo, exportando principalmente pescados e artigos mágicos. Até um momento em que a cidade caiu 
+            em grande ruína, e seu povo morreu de uma peste terrível, não sobrando ninguém para contar a história.
+        </p>
+
+        <h2 id="realidade-title" style="display:none;">Realidade</h2>
+        <p id="realidade-text" style="display:none;">
+            A realidade é que não foi uma peste que trouxe ruína ao povo dos drow. O Imperador foi quem, pessoalmente, causou-a. 
+            Ele veio, em sua armadura cintilante em prata, com uma armada considerável. Inicialmente, foram amigáveis. Montaram 
+            um posto temporário logo fora da cidade e o Imperador (que à epoca fora chamado de αθτοκρατορ), foi recebido com honrarias
+            de bom hóspede. Perguntaram da mineração de pedras mágicas - que era o segredo mais bem guardado dos drow. Não responderam.
+            Conforme os dias foram passando, foram chegando mais navios com mais homens armados... depois de um tempo, foi perguntado denovo,
+            e novamente não foi respondido. Então começou o ataque, o masscre na verdade. prédios foram destruidos, fogo, muito fogo, decaptações
+            em massa, no fim, ninguém sobreviveu para contar a história.
+            <br><br>
+            Pouquissimos sabem que no mundo atual, ser drow é passível de pena de morte, pois o querido imperador não quer que os contos de 
+            seu domínio se expalhem.
+        </p>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const isGM = params.get("gm") === "1";
+
+            if (isGM) {
+                document.getElementById("realidade-title").style.display = "block";
+                document.getElementById("realidade-text").style.display = "block";
+            }
+        </script>
+
+    </body>
+</html>

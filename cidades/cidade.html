@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cidade</title>
+
+    <style>
+        body {
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #8fd3ff;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <p>Carregando cidade...</p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const cityId = params.get("id");
+
+fetch("cidades.json")
+    .then(res => res.json())
+    .then(data => {
+        const city = data.cities.find(c => c.id === cityId);
+        const content = document.getElementById("content");
+
+        if (!city) {
+            content.innerHTML = "<p>Cidade não encontrada. <a href='../main.html'>retornar a página</p>";
+            return;
+        }
+
+        content.innerHTML = `
+            <h1>${city.name}</h1>
+            ${city.description}
+        `;
+    });
+</script>
+
+</body>
+</html>

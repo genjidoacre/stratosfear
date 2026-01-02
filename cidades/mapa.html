@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa do Reino</title>
+
+    <style>
+        body {
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Map container */
+        .map-container {
+            position: relative;
+            width: 1345px;
+            margin: 0 auto;
+        }
+
+        .map-container img {
+            width: 100%;
+            display: block;
+        }
+
+        /* City marker */
+        .city {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ff5555;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+
+        .city:hover {
+            background-color: #ffaaaa;
+        }
+
+        /* Description box */
+        .description {
+            max-width: 1345px;
+            margin: 20px auto 0 auto;
+            padding: 15px;
+            border: 1px solid #444;
+            background-color: #1a1a1a;
+            min-height: 100px;
+        }
+
+        .description h2 {
+            margin-top: 0;
+            color: #8fd3ff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Mapa do Reino</h1>
+
+<div class="map-container" id="map">
+    <img src="stratosfear 2025-12-29-10-07.png" alt="Mapa do Reino">
+</div>
+
+<div class="description" id="description">
+    <p>Selecione uma cidade no mapa.</p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const mapContainer = document.getElementById("map");
+    const descriptionBox = document.getElementById("description");
+
+    /* ===============================
+       Load cities and markers
+    =============================== */
+    fetch("./cidades.json")
+        .then(res => {
+            if (!res.ok) throw new Error("Erro ao carregar cidades.json");
+            return res.json();
+        })
+        .then(data => {
+            data.cities.forEach(city => {
+                const marker = document.createElement("div");
+                marker.className = "city";
+                marker.style.left = city.x + "px";
+                marker.style.top = city.y + "px";
+
+                marker.addEventListener("click", () => {
+                    fetch(city.content)
+                        .then(res => {
+                            if (!res.ok) throw new Error("Conteúdo não encontrado");
+                            return res.text();
+                        })
+                        .then(html => {
+                            descriptionBox.innerHTML = html;
+                        })
+                        .catch(err => {
+                            descriptionBox.innerHTML =
+                                "<p>Erro ao carregar a descrição.</p>";
+                            console.error(err);
+                        });
+                });
+
+                mapContainer.appendChild(marker);
+            });
+        })
+        .catch(err => console.error(err));
+
+    /* ===============================
+       Right-click coordinate picker
+    =============================== */
+    mapContainer.addEventListener("contextmenu", e => {
+        e.preventDefault();
+
+        const rect = mapContainer.getBoundingClientRect();
+        const x = Math.round(e.clientX - rect.left);
+        const y = Math.round(e.clientY - rect.top);
+
+        showCoords(x, y);
+        console.log(`x: ${x}, y: ${y}`);
+    });
+
+    function showCoords(x, y) {
+        let label = document.getElementById("coord-label");
+
+        if (!label) {
+            label = document.createElement("div");
+            label.id = "coord-label";
+            label.style.position = "absolute";
+            label.style.background = "rgba(0,0,0,0.7)";
+            label.style.color = "white";
+            label.style.padding = "4px 8px";
+            label.style.fontSize = "12px";
+            label.style.border = "1px solid #555";
+            label.style.pointerEvents = "none";
+            mapContainer.appendChild(label);
+        }
+
+        label.textContent = `x: ${x}, y: ${y}`;
+        label.style.left = `${x}px`;
+        label.style.top = `${y}px`;
+    }
+});
+</script>
+
+
+
+</body>
+</html>
