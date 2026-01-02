@@ -38,6 +38,9 @@
             .tooltip:hover .tooltip-text {
                 visibility: visible;
             }
+            .gm-only {
+                display: none;  
+            }
         </style>
         <title>Arraial do Conselheiro</title>
     </head>
@@ -68,10 +71,22 @@
             terrível.
         </p>
 
-        <h2> Realidade</h2>
-        <p>
-            Tudo isso é verdade, e tudo isso é mentira. Todos ali são abjetos da sociedade, mas nem por isso é uma terra sem lei. A palavra do 
-            conselheiro é a lei, e todos ali seguem-na com força de lei natural.
-        </p>
+        <div class="gm-only">
+            <h2> Realidade</h2>
+            <p>
+                Tudo isso é verdade, e tudo isso é mentira. Todos ali são abjetos da sociedade, mas nem por isso é uma terra sem lei. A palavra do 
+                conselheiro é a lei, e todos ali seguem-na com força de lei natural.
+            </p>
+        </div>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const isGM = params.get("gm") === "1";
+
+            if (isGM) {
+                document.querySelectorAll(".gm-only").forEach(el => {
+                    el.style.display = "block";
+                });
+            }
+        </script>   
     </body>
 </html>
