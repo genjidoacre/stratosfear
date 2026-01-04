@@ -31,6 +31,30 @@
             transform: translateY(-50%);
             max-width: 900px;
         }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+            text-decoration: underline;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 4px;
+            width: 200px;
+
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
     </style>
     </head>
     <body>
@@ -53,6 +77,15 @@
             Conheci-o por acaso e *jbl insira bonding moment, salvou  sua mãe ou algo ass*. Comecei a estudar com ele as maravilhas da magia. 
             Ele não agia com a violência de um drow, vendo o mundo de uma forma muito mais cienífica que violenta. Então, um dia, algo aocnteceu...
         </p>
+
+        <span class="tooltip">
+            Imagem do aristedes
+            <span class="tooltip-text"><img 
+                src="https://i.pinimg.com/1200x/cc/c9/f4/ccc9f4b294601231616fde5c8117b61d.jpg" 
+                alt="Arístedes, o cego"
+                style="max-width: 100%; height: auto;">
+            </span>
+        </span>
         <p>
             Estava presente na queda do <a href="../cidades/povos/drow.html">povo drow</a>, assistindo desesperado o ataque imperial, 
             vendo meus amigos e familia perecerem à minha frente, impotente. Foi então que o  aristedes surgiu em meio ao exército imperial, 
