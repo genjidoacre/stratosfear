@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <style>
+        body {
+            color: white;
+            background-color:black;
+            margin-right: 320px;
+            margin-left: 3%;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        a {
+            color: #8fd3ff;          /* light blue */
+            text-decoration: none;  /* optional */
+        }
+
+        a:hover {
+            color: #cbeaff;          /* even lighter on hover */
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #b6a8ff;          /* light violet for visited links */
+        }
+
+        .right-image {
+            position: fixed;
+            top: 50%;
+            right: 20%;
+            transform: translateY(-50%);
+            max-width: 900px;
+        }
+        .gm-only {
+            display: none;  
+        }
+    </style>
+    </head>
+    <body>
+        <!-- <img src="../mapa.transp.png" class="right-image"> -->
+
+        <h1 style="text-align: center;">constructos</h1>
+        <h2>História</h2>
+        <p>
+            Raça criada pelo imperador para serem seus guerreiros mais fiéis, surgiram a aproximadamente 500 anos.
+        <p>
+
+        <h2>Tipos</h2>
+        <p>
+            Enquanto a maioria dos constructos são focados em combate, muitos deles têm focos especiais. Pode se ver alguns deles com 
+            tamanhos enormes, para servirem de tanque e carregar objetos pesados, outros minúsculos, servem de espiões, e quem sabe quais 
+            outras formas esse povo não possa assumir para nos controlar...
+        </p>
+
+        <div class="gm-only">
+            <h2> Detalhes</h2>  
+            <p>
+                A produção de um constructo passa primeiro pelo molde cuidadoso do corpo, utilizando magias de dobrar madeira, que deve ser 
+                um tronco de uma árvore específica achada em <a href="../shellforest.html">shellforest</a> no noroeste da ilha. Depois de 
+                dada a forma humana, na própria madeira são exculpidas pequenas engrenagens para facilitar o movimento das articulações. Então,
+                todo o constructo é coberto em metal extraido nas <a href="../minas-de-darvaza.html">minas de darvaza</a>.
+            </p>
+            <p>
+                Por fim, uma gema mágica cuidadosamente lapidada, esculpida e engravada de runas mágicas é colocada com a programação 
+                do robô em um compartimento em seu peito, permitindo apenas os pensamentos e ações previstas em código, toranando-os eternamente 
+                senscientes aos comandos de seus mestres.
+            </p>
+        </div>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const isGM = params.get("gm") === "1";
+
+            if (isGM) {
+                document.querySelectorAll(".gm-only").forEach(el => {
+                    el.style.display = "block";
+                });
+            }
+        </script> 
+    </body>
+</html>

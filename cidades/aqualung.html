@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                color: white;
+                background-color:black;
+                margin-left: 7%;
+                margin-top: 5%;
+                font-family: 'Courier New', Courier, monospace;
+                
+            }
+
+            body p {
+                width: 40%;
+            }
+
+            .tooltip {
+                position: relative;
+                cursor: help;
+                text-decoration: underline;
+            }
+
+            .tooltip-text {
+                visibility: hidden;
+                position: absolute;
+                background-color: black;
+                color: white;
+                padding: 5px 8px;
+                border-radius: 4px;
+                width: 200px;
+
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .tooltip:hover .tooltip-text {
+                visibility: visible;
+            }
+            .gm-only {
+                display: none;  
+            }
+        </style>
+        <title>Aqualung</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Aqualung</h1>
+
+        <h2>Descrição</h2>
+        <p>
+            Aqualung é, na prática, a capital do mundo. Uma cidade estratégicamente localizada em cima de um grande lago, no qual vários dos 
+            maiores rios da região desaguam, servindo de meio de transporte para dentro do continente, além de um grande rio que leva para o oceano.
+        </p>
+        <p>
+            A cidade em si consiste de várias casas flutuantes sob o lago, feitas principalmente de madeira, de forma que canoas são frequentemente vistas
+            atravessando o corpo dágua, além de jangadas e navios maiores que servem para o comércio exterior da cidade.
+        </p>
+        <p>
+            Chama mais atenção, no entanto, o castelo principal, onde mora o Imperador. Muitos metros acima da superfície do lago, flutua uma massa de terra 
+            com uma profusão de casas e muros, além de uma torre central. Lá mora o Imperador, e seus suditos mais próximos. Só é possível acessar essa
+            fortaleza através de barcos voadores, que ficam alojados à base dessa ilha acima dágua.
+        </p>
+
+        <img 
+            src="https://i.pinimg.com/1200x/e1/56/0f/e1560f8fa67d5ec67373e8a590310e70.jpg" 
+            alt="Aqualung"
+            style="max-width: 100%; height: auto;"
+        >
+
+        <h2>Folk lore</h2>
+        <p>
+            Dizem que muitos anos atrás a ilha era incapaz de voar, e ficava presa no lago qual fosse uma ilha qualquer. Entretanto uma pequena
+            demonstração do poder do imperador é dedicada a deixar a ilha voando. E dizem que é sua magia que pessoalmente faz os barcos-voadores, sendo 
+            individualmente dirigidos por ele.
+        </p>
+
+        <div class="gm-only">
+            <h2> Realidade</h2>
+            <p>
+                Em parte, isso é verdade. O rei quem fez a ilha decolar. Entretanto, todo esse poder mágico vem do imenso estoque de 
+                pedras mágicas que fica guardado sob a tutela do imperador na ilha, e a maior delas é usada para manter a segurança do
+                Imperador nos ares.
+            </p>
+        </div>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const isGM = params.get("gm") === "1";
+
+            if (isGM) {
+                document.querySelectorAll(".gm-only").forEach(el => {
+                    el.style.display = "block";
+                });
+            }
+        </script> 
+    </body>
+</html>

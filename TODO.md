@@ -1,0 +1,4 @@
+- lore jalim
+- sidequests marionete
+- geografia dos players
+- personagens falco e bronco
